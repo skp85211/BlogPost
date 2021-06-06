@@ -25,3 +25,24 @@ Response: <br>
 data: "Object", <br>
 error: "string"<br>
 }<br>
+
+#### `POST` &nbsp; /user/login  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User Login
+Input Body Parameters: </br>
+>email: "string"
+password: "string" <br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data:<br>
+{<br>
+    "success": true,<br>
+    "data": {<br>
+        "userId": Integer,<br>
+        "name": "string",<br>
+        "email": "string",<br>
+        "token": "Jwt Token (use it for further api request as access code) "<br>
+    },<br>
+    "error": "String"<br>
+}<br>
+
