@@ -10,6 +10,8 @@ To Run Code, follow these steps : <br>
 6. Once server is up and running, you can see port number in console and can test APIs
 7. You can also refer [Router](https://github.com/skp85211/BlogPost/blob/master/router) `index.js` to find all APIs routes
 8. To Test APIs all body parameters input should be in `x-www-form-urlencoded`, Query Parameter in `Params` and JWT token in `Headers` with KEY as `access-token` and Value as JWT token in `Postman`.
+9. Response will always be in format of :
+>{`success`:"", `data`:{}, `error`:""}
 
 ## ALL API Endpoints
 ### `METHOD` &nbsp;&nbsp;&nbsp;&nbsp;    PATH            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; USE 
@@ -28,19 +30,13 @@ error: "string"<br>
 
 #### `POST` &nbsp; /user/login  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; User Login
 Input Body Parameters: </br>
->email: "string"
+>email: "string"<br>
 password: "string" <br>
 
 Response: <br>
 >{<br>
 >success: "true or false", <br>
-data:<br>
-{<br>
-    "success": true,<br>
-    "data": {<br>
-        "userId": Integer,<br>
-        "name": "string",<br>
-        "email": "string",<br>
+data:{<br>
         "token": "Jwt Token (use it for further api request as access code) "<br>
     },<br>
     "error": "String"<br>
