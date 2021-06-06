@@ -42,3 +42,142 @@ data:{<br>
     "error": "String"<br>
 }<br>
 
+
+
+#### `POST` &nbsp; /admin/login  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Admin Login
+Input Body Parameters: </br>
+>email: "string"<br>
+password: "string" <br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data:{<br>
+        "token": "Jwt Token (use it for further api request as access code) "<br>
+    },<br>
+    "error": "String"<br>
+}<br>
+
+
+#### `POST` &nbsp; /blog/create  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Create a new blog post
+Headers: <br>
+>access-token : "jwt token (token received after successful login)"
+
+Input Body Parameters: </br>
+>title: "string"<br>
+content: "text" <br>
+
+
+#### `GET` &nbsp; /blog/all  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; All Latest Blog post with title and author name
+Response: <br>
+>{<br>
+    "success": true,<br>
+    "data": [<br>
+        {<br>
+            "title": "",
+            "author": ""
+        },<br>
+        {<br>
+            "title": "",
+            "author": ""
+        },<br>
+        {<br>
+            "title": "",
+            "author": ""
+        },<br>
+        {...}<br>
+    ],<br>
+    "error": ""<br>
+}<br>
+
+
+#### `GET` &nbsp; /blog/getBlog?blogId=blogid  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Get Single Post With title, author and content
+Input Query Parameters: </br>
+>blogId: "Integer"<br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data:[<br>
+        {<br>
+            "title": "",<br>
+            "author": "",<br>
+            "content": ""<br>
+        }<br>
+    ],<br>
+    "error": "String"<br>
+}<br>
+
+
+
+#### `GET` &nbsp; /blog/filteredBlog?title=title  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Get list of filtered post by title
+Input Query Parameters: </br>
+>title: "string"<br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data:[<br>
+        {<br>
+            "title": "",<br>
+            "author": "",<br>
+            "content": ""<br>
+        },<br>
+        {<br>
+            "title": "",<br>
+            "author": "",<br>
+            "content": ""<br>
+        },<br>
+        {....}<br>
+    ],<br>
+    "error": "String"<br>
+}<br>
+
+
+
+
+#### `PUT` &nbsp; /blog/update  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Updates blog content
+Headers: <br>
+>access-token : "jwt token (token received after successful login)"
+
+Input Body Parameters: </br>
+>blogId: "Integer"<br>
+content: "string"<br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data:[0 or 1],<br>
+"error": "String"<br>
+}<br>
+
+
+
+#### `DELETE` &nbsp; /blog/delete  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete Blog by user ( his/her own blog)
+Headers: <br>
+>access-token : "jwt token (token received after successful login)"
+
+Input Body Parameters: </br>
+>blogId: "Integer"<br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data: 0 or 1,<br>
+"error": "String"<br>
+}<br>
+
+
+#### `DELETE` &nbsp; /admin/blogDelete  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Delete Blog by Admin ( Any blog)
+Headers: <br>
+>access-token : "jwt token (token received after successful login)"
+
+Input Body Parameters: </br>
+>blogId: "Integer"<br>
+
+Response: <br>
+>{<br>
+>success: "true or false", <br>
+data: 0 or 1,<br>
+"error": "String"<br>
+}<br>
