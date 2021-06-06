@@ -66,9 +66,6 @@ exports.loginPasswordAuth = async (req, res) => {
   } else {
     let accessToken = jwtauth.generateAccessToken(login.id);
     let data = {
-      userId: login.id,
-      name: login.name,
-      email: login.email,
       token: accessToken,
     };
     return utils.sendResponse(res, true, data, '');
